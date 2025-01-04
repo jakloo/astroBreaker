@@ -28,6 +28,12 @@ public class LogicController : MonoBehaviour
 
     private int taskCount = 0;
 
+    private int lifeCount = 3;
+
+    const float MAX_TIME_LIMIT = 10f;
+
+    private float timeElapsed = 0f;
+
     GuiController gui;
     
     void Start()
@@ -45,6 +51,15 @@ public class LogicController : MonoBehaviour
         }
 
         gui = GetComponent<GuiController>();
+
+    }
+
+    void Update() {
+        
+        timeElapsed += Time.deltaTime;
+        float percentage = timeElapsed / MAX_TIME_LIMIT;
+        Debug.Log(percentage);
+        gui.updateTimeBarSize(percentage);
 
     }
 

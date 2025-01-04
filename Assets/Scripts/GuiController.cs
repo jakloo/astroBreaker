@@ -11,19 +11,33 @@ public class GuiController : MonoBehaviour
     private float reticleFullSize;
 
     public Image[] taskCounters;
+    public Image[] lifeCounters;
+
+    public RawImage timeBar;
+
+    private float timeBarFullSize;
+    private float timeBarHeight;
 
     private int shownTaskCounters = 5;
+    private int shownLifeCounters = 3;
 
     private Color currentTaskColor;
 
     void Start()
     {
         reticleFullSize = reticleImage.rectTransform.sizeDelta.x;
+        timeBarFullSize = timeBar.rectTransform.sizeDelta.x;
+        timeBarHeight = timeBar.rectTransform.sizeDelta.y;
     }
 
     public void updateReticleSize(float percentage){
         float newSize = reticleFullSize - (reticleFullSize * percentage);
         reticleImage.rectTransform.sizeDelta = new Vector2(newSize, newSize);
+    }
+
+    public void updateTimeBarSize(float percentage){
+        float newSize = timeBarFullSize - (timeBarFullSize * percentage);
+        timeBar.rectTransform.sizeDelta = new Vector2(newSize, timeBarHeight);
     }
 
     public void updateTaskColor(Color color){
@@ -54,5 +68,25 @@ public class GuiController : MonoBehaviour
         }
 
         shownTaskCounters = newCount;
+    }
+
+    public void updateLiveCount(int newCount){
+        
+        if (newCount < shownLifeCounters){
+
+            for (int i = newCount; i < shownLifeCounters; i++){
+                lifeCounters[i].enabled = false;
+            }
+        }
+
+        else if (newCount > shownLifeCounters){
+
+            for (int i = shownLifeCounters; i < newCount; i++){
+                lifeCounters[i].enabled = true;
+            }
+
+        }
+
+        shownLifeCounters = newCount;
     }
 }
