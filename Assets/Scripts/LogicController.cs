@@ -122,7 +122,7 @@ public class LogicController : MonoBehaviour
             int count = junkCounterPerColor[i];
             if (count == 0)
                 restricted[i] = true;
-            else if (count > countJunkOfOtherColors(i)){
+            else if (count > junkCounter/2){
                 return i;
             }
                 
