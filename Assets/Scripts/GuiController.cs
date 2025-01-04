@@ -72,6 +72,8 @@ public class GuiController : MonoBehaviour
 
     public void updateLiveCount(int newCount){
         
+        Debug.Log(shownLifeCounters + " -> " + newCount);
+
         if (newCount < shownLifeCounters){
 
             for (int i = newCount; i < shownLifeCounters; i++){

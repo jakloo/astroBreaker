@@ -30,7 +30,7 @@ public class LogicController : MonoBehaviour
 
     private int lifeCount = 3;
 
-    const float MAX_TIME_LIMIT = 10f;
+    private float MAX_TIME_LIMIT = 10f;
 
     private float timeElapsed = 0f;
 
@@ -58,9 +58,18 @@ public class LogicController : MonoBehaviour
         
         timeElapsed += Time.deltaTime;
         float percentage = timeElapsed / MAX_TIME_LIMIT;
-        Debug.Log(percentage);
         gui.updateTimeBarSize(percentage);
 
+        if (percentage >= 1){
+            resetTimer();
+            loseLife();
+        }
+
+    }
+
+    private void loseLife(){
+        lifeCount -= 1;
+        gui.updateLiveCount(lifeCount);
     }
 
     void addColorToLists(int index, string name, float red, float green, float blue){
@@ -121,6 +130,13 @@ public class LogicController : MonoBehaviour
             changeTaskCount(chooseNextTaskCount());
         }
 
+        resetTimer();
+
+    }
+
+    private void resetTimer(){
+        timeElapsed = Mathf.Max(0, timeElapsed - (MAX_TIME_LIMIT  * (0.4f + 0.1f * lifeCount)));
+        MAX_TIME_LIMIT *= 0.99f;
     }
 
     private void changeCurrentColor(int colorIndex){
