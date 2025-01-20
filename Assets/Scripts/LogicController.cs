@@ -30,7 +30,7 @@ public class LogicController : MonoBehaviour
 
     private int lifeCount = 3;
 
-    private float MAX_TIME_LIMIT = 10f;
+    private float MAX_TIME_LIMIT = 15f;
 
     private float timeElapsed = 0f;
 
@@ -39,18 +39,21 @@ public class LogicController : MonoBehaviour
     void Start()
     {
 
-        addColorToLists(0, "Red", 145, 0, 0);
-        addColorToLists(1, "Green", 25, 115, 25);
-        addColorToLists(2, "Blue", 70, 120, 230);
-        addColorToLists(3, "Yellow", 225, 225, 0);
-        addColorToLists(4, "Cyan", 40, 255, 200);
         addColorToLists(5, "Pink", 200, 0, 160);
+        addColorToLists(4, "Red", 145, 0, 0);
+        addColorToLists(3, "Yellow", 225, 225, 0);
+        addColorToLists(2, "Green", 25, 115, 25);
+        addColorToLists(1, "Cyan", 40, 255, 200);
+        addColorToLists(0, "Blue", 70, 120, 230);        
 
         for (int i = 0; i < COLOR_COUNT; i++){
             junkCounterPerColor[i] = 0;
         }
 
         gui = GetComponent<GuiController>();
+
+        coloriseTools();
+        chooseTool(0);
 
     }
 
@@ -202,5 +205,21 @@ public class LogicController : MonoBehaviour
     public float calculateNextSpawnTime(){
         return  BASE_JUNK_SPAWN_TIME + MAX_JUNK_SPAWN_TIME_GAIN -
                 Mathf.Max(0, (MAX_JUNK_COUNT_SOFT - junkCounter) / (MAX_JUNK_COUNT_SOFT / MAX_JUNK_SPAWN_TIME_GAIN));
+    }
+
+
+    ////// ATNOSPHERE ONLY
+        
+    private int currentTool = 0;
+
+    private void coloriseTools(){
+        for (int i = 0; i<COLOR_COUNT; i++){
+            gui.coloriseTool(i, colors[i]);
+        }    
+    }
+
+    private void chooseTool(int index){
+        gui.swapTool(currentTool, index);
+        currentTool = index;
     }
 }

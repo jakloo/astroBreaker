@@ -91,4 +91,19 @@ public class GuiController : MonoBehaviour
 
         shownLifeCounters = newCount;
     }
+
+
+    ///////////////// ATMOSPHERE ONLY
+
+    public Image[] toolIcons;
+
+    public void coloriseTool(int index, Color color){
+        toolIcons[index].color = color;
+    }
+
+    public void swapTool(int oldIndex, int newIndex){
+        toolIcons[oldIndex].rectTransform.localScale = Vector3.one;
+        toolIcons[newIndex].rectTransform.localScale = Vector3.one;
+    }
+    
 }
