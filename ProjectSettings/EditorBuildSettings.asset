@@ -9,4 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/GameSpaceStage.unity
     guid: 03c48c5e809944fa4afcae9973709f26
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 32af427e9c35f9d40a2a156aa53c3ca1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5aff3087eff4c1441beb12f22051af9b, type: 2}
