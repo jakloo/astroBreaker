@@ -10,6 +10,9 @@ TagManager:
   - 3
   - 4
   - 5
+  - Upgrade
+  - Button
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - Interactive
   - Water
   - UI
-  - 
+  - Controls
   - 
   - 
   - 
