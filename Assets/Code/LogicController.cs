@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public class LogicController : MonoBehaviour
 {
@@ -64,6 +62,8 @@ public class LogicController : MonoBehaviour
     public GameObject projectileSource;
 
     public float MIN_DISTANCE, MAX_DISTANCE;
+
+    public Material destroyedMaterial;
     
     void Start()
     {   
@@ -470,6 +470,7 @@ public class LogicController : MonoBehaviour
     private void issueToDestroy(GameObject source, GameObject target, List<GameObject> secondaryTargets){
         target.layer = LayerMask.NameToLayer("Ignore Raycast");
         Rigidbody body = target.GetComponent<Rigidbody>(); 
+        target.GetComponent<Renderer>().material = destroyedMaterial;
         body.isKinematic = true;
         Vector3 direction = (target.transform.position - source.transform.position).normalized;
         GameObject projectile = Instantiate(projectilePrefab, source.transform.position, Quaternion.LookRotation(direction));

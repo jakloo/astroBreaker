@@ -1548,7 +1548,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 0
   shouldIncreaseDifficulty: 0
-  timeRunning: 1
   gameIsOver: 0
   canPauseGame: 0
   freezeActive: 0
@@ -1558,6 +1557,7 @@ MonoBehaviour:
   projectileSource: {fileID: 1065896230}
   MIN_DISTANCE: 5
   MAX_DISTANCE: 20
+  destroyedMaterial: {fileID: 2100000, guid: bced1b79ecd824f49817c1160ad3aa46, type: 2}
 --- !u!114 &907292814
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -735,7 +735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage: 1
   shouldIncreaseDifficulty: 0
-  timeRunning: 1
   gameIsOver: 0
   canPauseGame: 0
   freezeActive: 0
@@ -745,6 +744,7 @@ MonoBehaviour:
   projectileSource: {fileID: 1065896230}
   MIN_DISTANCE: 20
   MAX_DISTANCE: 25
+  destroyedMaterial: {fileID: 2100000, guid: bced1b79ecd824f49817c1160ad3aa46, type: 2}
 --- !u!114 &907292814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,7 +1898,7 @@ GameObject:
   - component: {fileID: 1981406685}
   - component: {fileID: 1981406684}
   - component: {fileID: 1981406683}
-  - component: {fileID: 1981406682}
+  - component: {fileID: 1981406687}
   m_Layer: 2
   m_Name: CollisionPlane
   m_TagString: Untagged
@@ -1906,18 +1906,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1981406682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981406681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f67a1c0449625944bf95b9906d194fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &1981406683
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2005,6 +1993,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1981406687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981406681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f67a1c0449625944bf95b9906d194fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2009957424 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5531545933545016385, guid: 16399d7fcc787ea48a9a9c96cf7001ab, type: 3}
