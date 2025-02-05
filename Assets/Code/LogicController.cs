@@ -30,7 +30,7 @@ public class LogicController : MonoBehaviour
 
     private int lifeCount = 3;
 
-    private float MAX_TIME_LIMIT = 15f;
+    private float MAX_TIME_LIMIT = 12f;
 
     private float PHASE_DURATION = 15f;
 
