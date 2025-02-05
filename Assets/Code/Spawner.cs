@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour {
     //Spawn velocity fields
     public const float MAX_SPEED_LIMIT = 7f;
 
-    public const float MIN_SPEED_INIT = 0.5f;
+    public const float MIN_SPEED_INIT = 0.25f;
 
     private const float SPEED_STEP = 0.25f;
 
@@ -131,7 +131,7 @@ public class Spawner : MonoBehaviour {
     public void assignAngularVelocity(GameObject junk){
         
             Rigidbody body = junk.GetComponent<Rigidbody>();
-            body.angularVelocity = body.velocity * 0.5f;
+            body.angularVelocity = body.velocity * 0.25f;
 
     }
 
@@ -160,7 +160,7 @@ public class Spawner : MonoBehaviour {
         public override void assignVelocity(GameObject junk){
         
             Vector3 direction = new Vector3(0, -1, 0);
-            float speed = Random.Range(minSpeed, maxSpeed) * 0.5f;
+            float speed = Random.Range(minSpeed, maxSpeed) * 0.35f;
             junk.GetComponent<Rigidbody>().velocity = direction * speed;
 
         }
