@@ -41,7 +41,7 @@ public class TargetBehaviour : MonoBehaviour {
 
                 try{
                         var particles = GetComponent<ParticleSystem>();
-                        if (particles.isPlaying){
+                        if (particles != null && particles.isPlaying){
                                 burning = true;
                                 particles.Pause();
                         }
